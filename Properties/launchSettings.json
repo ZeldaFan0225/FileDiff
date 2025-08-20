@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Diff_CP": {
+      "commandName": "Project",
+      "commandLineArgs": "--create-patch C:\\Users\\robin\\Documents\\Discord\\bot\\slashbot\\SlashBot_V7\\dist\\buttons\\buttonrole.js C:\\Users\\robin\\Documents\\Discord\\bot\\slashbot\\SlashBot_V7\\dist\\dropdowns\\dropdownrole.js C:\\Users\\robin\\Desktop\\diff.patch"
+    }
+  }
+}
