@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+; Remove DiffApp context menu entries
+[-HKEY_CLASSES_ROOT\*\shell\DiffApp.SetLeft]
+[-HKEY_CLASSES_ROOT\*\shell\DiffApp.Compare]
+[-HKEY_CLASSES_ROOT\*\shell\DiffApp.Patch]
+[-HKEY_CLASSES_ROOT\*\shell\DiffApp.DirectCompare]

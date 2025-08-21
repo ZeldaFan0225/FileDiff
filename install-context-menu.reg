@@ -1,0 +1,34 @@
+Windows Registry Editor Version 5.00
+
+; Context menu for all files - Set as Diff Left
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.SetLeft]
+@="Set as Diff Left"
+"Icon"="shell32.dll,-16752"
+
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.SetLeft\command]
+@="\"C:\\Program Files\\DiffApp\\DiffApp.exe\" --set-left \"%1\""
+
+; Context menu for all files - Compare with Left
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.Compare]
+@="Compare with Left"
+"Icon"="shell32.dll,-16752"
+
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.Compare\command]
+@="\"C:\\Program Files\\DiffApp\\DiffApp.exe\" --compare \"%1\""
+
+; Context menu for all files - Generate Patch
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.Patch]
+@="Generate Patch with Left"
+"Icon"="shell32.dll,-16752"
+
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.Patch\command]
+@="\"C:\\Program Files\\DiffApp\\DiffApp.exe\" --patch \"%1\""
+
+; Context menu for comparing two files directly (when multiple files selected)
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.DirectCompare]
+@="Compare Files"
+"Icon"="shell32.dll,-16752"
+"MultiSelectModel"="Single"
+
+[HKEY_CLASSES_ROOT\*\shell\DiffApp.DirectCompare\command]
+@="\"C:\\Program Files\\DiffApp\\DiffApp.exe\" --diff \"%1\""

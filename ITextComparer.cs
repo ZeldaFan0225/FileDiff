@@ -29,7 +29,7 @@ namespace Diff_CP
         internal TextOpType Type { get; set; }
         internal string Text { get; set; } = string.Empty;
 
-        internal string ToString()
+        public override string ToString()
         {
             return Type switch
             {

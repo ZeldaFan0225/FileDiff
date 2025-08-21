@@ -1,6 +1,11 @@
 # Build results
 bin/
 obj/
+*.exe
+*.dll
+*.pdb
+*.msi
+*.wixpdb
 
 # User-specific files
 *.user
@@ -13,3 +18,16 @@ Thumbs.db
 
 # Local data
 *DiffApp/leftfile.txt
+
+# Test files
+test/
+
+# Deployment folder
+deployment/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Windows icon placeholder
+diff-icon.ico
