@@ -1,9 +1,8 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diff_CP", "Diff_CP.csproj", "{955308B0-3423-41B4-8E8D-3BC756BB594B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffApp", "DiffApp.csproj", "{4E02C015-7DE0-410F-99EB-AD0EDCE8BF9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{955308B0-3423-41B4-8E8D-3BC756BB594B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{955308B0-3423-41B4-8E8D-3BC756BB594B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{955308B0-3423-41B4-8E8D-3BC756BB594B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{955308B0-3423-41B4-8E8D-3BC756BB594B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E02C015-7DE0-410F-99EB-AD0EDCE8BF9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E02C015-7DE0-410F-99EB-AD0EDCE8BF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E02C015-7DE0-410F-99EB-AD0EDCE8BF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E02C015-7DE0-410F-99EB-AD0EDCE8BF9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

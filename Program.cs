@@ -100,7 +100,11 @@ namespace DiffApp
             }
 
             // Ensure directory exists
-            Directory.CreateDirectory(Path.GetDirectoryName(LeftFileStorage));
+            var leftStorageDir = Path.GetDirectoryName(LeftFileStorage);
+            if (leftStorageDir != null)
+            {
+                Directory.CreateDirectory(leftStorageDir);
+            }
 
             // Store the path of the left file
             File.WriteAllText(LeftFileStorage, filePath);

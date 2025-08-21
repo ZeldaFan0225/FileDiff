@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  
+  <Product 
+    Id="*"
+    Name="DiffApp - File Comparison Tool"
+    Language="1033"
+    Version="1.0.0.0"
+    Manufacturer="DiffApp"
+    UpgradeCode="12345678-1234-1234-1234-123456789012">
+    
+    <Package 
+      InstallerVersion="500"
+      Compressed="yes"
+      InstallScope="perMachine"
+      Description="Windows context menu integration for file comparison and diff operations"
+      Comments="DiffApp Installer"
+      Manufacturer="DiffApp" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="DiffApp" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="RegistryEntries" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="DiffApp" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="DiffApp" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      
+      <!-- Main application executable -->
+      <Component Id="MainExecutable" Guid="12345678-1234-1234-1234-123456789013">
+        <File Id="DiffAppExe" 
+              Source="$(var.DiffApp.TargetPath)" 
+              KeyPath="yes" 
+              Checksum="yes">
+          <Shortcut Id="ApplicationStartMenuShortcut" 
+                    Directory="ApplicationProgramsFolder" 
+                    Name="DiffApp"
+                    Description="File Comparison Tool"
+                    WorkingDirectory="INSTALLFOLDER"
+                    Advertise="yes" />
+        </File>
+      </Component>
+
+      <!-- Registry files for manual installation -->
+      <Component Id="RegistryFiles" Guid="12345678-1234-1234-1234-123456789014">
+        <File Id="InstallRegFile" 
+              Source="install-context-menu.reg" 
+              KeyPath="yes" />
+        <File Id="UninstallRegFile" 
+              Source="uninstall-context-menu.reg" />
+      </Component>
+      
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <!-- Registry entries for context menu integration -->
+    <Component Id="RegistryEntries" Directory="INSTALLFOLDER" Guid="12345678-1234-1234-1234-123456789015">
+      
+      <!-- Set as Diff Left context menu -->
+      <RegistryKey Root="HKCR" Key="*\shell\DiffApp.SetLeft">
+        <RegistryValue Type="string" Value="Set as Diff Left" KeyPath="yes" />
+        <RegistryValue Name="Icon" Type="string" Value="shell32.dll,-16752" />
+        
+        <RegistryKey Key="command">
+          <RegistryValue Type="string" Value='"[INSTALLFOLDER]DiffApp.exe" --set-left "%1"' />
+        </RegistryKey>
+      </RegistryKey>
+
+      <!-- Compare with Left context menu -->
+      <RegistryKey Root="HKCR" Key="*\shell\DiffApp.Compare">
+        <RegistryValue Type="string" Value="Compare with Left" />
+        <RegistryValue Name="Icon" Type="string" Value="shell32.dll,-16752" />
+        
+        <RegistryKey Key="command">
+          <RegistryValue Type="string" Value='"[INSTALLFOLDER]DiffApp.exe" --compare "%1"' />
+        </RegistryKey>
+      </RegistryKey>
+
+      <!-- Generate Patch with Left context menu -->
+      <RegistryKey Root="HKCR" Key="*\shell\DiffApp.Patch">
+        <RegistryValue Type="string" Value="Generate Patch with Left" />
+        <RegistryValue Name="Icon" Type="string" Value="shell32.dll,-16752" />
+        
+        <RegistryKey Key="command">
+          <RegistryValue Type="string" Value='"[INSTALLFOLDER]DiffApp.exe" --patch "%1"' />
+        </RegistryKey>
+      </RegistryKey>
+
+    </Component>
+  </Fragment>
+
+
+
+</Wix>
